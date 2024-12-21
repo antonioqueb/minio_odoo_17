@@ -13,7 +13,6 @@ class MinioFileSystem(models.Model):
     access_key = fields.Char(string="Access Key", required=True)
     secret_key = fields.Char(string="Secret Key", required=True)
     bucket_name = fields.Char(string="Bucket Name", required=True)
-    region = fields.Char(string="Region", default="us-east-1")
     is_default_storage = fields.Boolean(string="Is default storage")
 
     _sql_constraints = [
@@ -37,7 +36,6 @@ class MinioFileSystem(models.Model):
                 endpoint_url = self.endpoint_url,
                 key = self.access_key,
                 secret = self.secret_key,
-                region = self.region
                 )
             except Exception as e:
                 raise UserError(f"Error connecting with storage: {e}")

@@ -13,7 +13,6 @@
                         <field name="access_key"/>
                         <field name="secret_key"/>
                         <field name="bucket_name"/>
-                        <field name="region"/>
                         <field name="is_default_storage"/>
                     </group>
                     <group>
