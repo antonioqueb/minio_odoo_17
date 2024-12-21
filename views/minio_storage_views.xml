@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_minio_storage_form" model="ir.ui.view">
+        <field name="name">minio.storage.form</field>
+        <field name="model">minio.storage</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="endpoint_url"/>
+                        <field name="access_key"/>
+                        <field name="secret_key"/>
+                        <field name="bucket_name"/>
+                        <field name="region"/>
+                        <field name="is_default_storage"/>
+                    </group>
+                    <group>
+                        <button name="test_connection" type="object" string="Test Connection"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+     <record id="view_minio_storage_tree" model="ir.ui.view">
+        <field name="name">minio.storage.tree</field>
+        <field name="model">minio.storage</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="endpoint_url"/>
+                 <field name="access_key"/>
+            </tree>
+        </field>
+    </record>
+
+   <record id="action_minio_storage" model="ir.actions.act_window">
+        <field name="name">Minio Storage</field>
+        <field name="res_model">minio.storage</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+     <menuitem
+        id="menu_minio_storage_configuration"
+        name="Minio Storage"
+        parent="base.menu_administration"
+        action="action_minio_storage"
+        sequence="30"/>
+</odoo>
